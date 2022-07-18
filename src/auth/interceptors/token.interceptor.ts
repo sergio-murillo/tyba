@@ -10,7 +10,9 @@ import type { Response } from 'express';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-
+/**
+ * Responsible for adding the token to the request response
+ */
 @Injectable()
 export class TokenInterceptor implements NestInterceptor {
   constructor(
