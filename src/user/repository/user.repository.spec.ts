@@ -57,4 +57,9 @@ describe('UserRepository', () => {
     expect(result.password).toBeDefined();
     expect(result.salt).toBeDefined();
   });
+
+  it('should find all users', async () => {
+    const result = await repository.findAll();
+    expect(result.length).toBeGreaterThan(0);
+  });
 });
