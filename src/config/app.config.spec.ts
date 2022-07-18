@@ -1,6 +1,6 @@
 import { ConfigModule, ConfigType } from '@nestjs/config';
 import { TestingModule, Test } from '@nestjs/testing';
-import mongodbConfig from './mongodb.config';
+import mongodbConfig from './app.config';
 
 describe('mongodbConfig', () => {
   let config: ConfigType<typeof mongodbConfig>;

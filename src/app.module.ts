@@ -6,7 +6,7 @@ import { AppInterceptor } from 'app.interceptor';
 import { AuthModule } from 'auth/auth.module';
 import { TransactionModule } from 'transaction/transaction.module';
 import { UserModule } from 'user/user.module';
-import appConfig from './config/mongodb.config';
+import appConfig from './config/app.config';
 
 @Module({
   imports: [
