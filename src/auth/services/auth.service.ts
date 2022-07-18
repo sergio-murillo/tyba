@@ -9,6 +9,9 @@ import { UserDto } from 'user/dtos/user.dto';
 import { IUserService } from 'user/interfaces/user.interfaces';
 import { checkPassword } from 'utils/security';
 
+/**
+ * Responsible for generating or removing token
+ */
 @Injectable()
 export class AuthService implements IAuthService {
   constructor(

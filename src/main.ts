@@ -13,7 +13,7 @@ async function bootstrap() {
   const config = new DocumentBuilder()
     .addBearerAuth()
     .setTitle('Tyba API')
-    .setDescription('Prueba con invoices')
+    .setDescription('Prueba')
     .setVersion(require(`${process.cwd()}/package.json`).version)
     .build();
   const document = SwaggerModule.createDocument(app, config);
