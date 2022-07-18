@@ -1,4 +1,4 @@
-import { CreateUserDto } from "user/dtos/create-user.dto";
+import { CreateUserDto } from 'user/dtos/create-user.dto';
 
 export const UserDtoStub = (): CreateUserDto[] => [
   {
@@ -8,6 +8,6 @@ export const UserDtoStub = (): CreateUserDto[] => [
     city: 'Ciudad',
     country: 'Pais',
     username: 'pepito',
-    password: '123456'
+    password: '123456',
   },
 ];

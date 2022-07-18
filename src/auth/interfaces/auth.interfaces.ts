@@ -1,7 +1,7 @@
-import { LoginDto } from "auth/dtos/login.dto";
-import { CreateUserResponseDto } from "user/dtos/create-user-response.dto";
-import { CreateUserDto } from "user/dtos/create-user.dto";
-import { UserDto } from "user/dtos/user.dto";
+import { LoginDto } from 'auth/dtos/login.dto';
+import { CreateUserResponseDto } from 'user/dtos/create-user-response.dto';
+import { CreateUserDto } from 'user/dtos/create-user.dto';
+import { UserDto } from 'user/dtos/user.dto';
 
 export interface IJwtPayload {
   sub: string;

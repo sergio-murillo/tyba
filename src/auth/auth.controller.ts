@@ -32,8 +32,7 @@ export class AuthController {
 
   @ApiResponse({
     status: HttpStatus.CREATED,
-    description:
-      'Register user',
+    description: 'Register user',
   })
   @ApiBody({ type: [CreateUserDto] })
   @UseInterceptors(TokenInterceptor)
@@ -45,8 +44,7 @@ export class AuthController {
 
   @ApiResponse({
     status: HttpStatus.OK,
-    description:
-      'Authenticate user',
+    description: 'Authenticate user',
   })
   @Post('login')
   @UseGuards(LocalAuthGuard)
@@ -57,8 +55,7 @@ export class AuthController {
 
   @ApiResponse({
     status: HttpStatus.OK,
-    description:
-      'Logout user',
+    description: 'Logout user',
   })
   @Post('logout')
   @UseGuards(JWTAuthGuard)

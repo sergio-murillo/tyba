@@ -26,6 +26,6 @@ import appConfig from './config/mongodb.config';
       provide: APP_INTERCEPTOR,
       useClass: AppInterceptor,
     },
-  ]
+  ],
 })
 export class AppModule {}

@@ -24,41 +24,35 @@ describe('API endpoints testing (e2e)', () => {
 
   describe('/register a new user', () => {
     it('if username is existed', async () => {
-      const res = await request(app.getHttpServer())
-        .post('/register')
-        .send({
-          username: 'hantsy',
-          password: 'password',
-          email: 'hantsy@test.com',
-          firstName: 'Hantsy',
-          lastName: 'Bai'
-        });
+      const res = await request(app.getHttpServer()).post('/register').send({
+        username: 'hantsy',
+        password: 'password',
+        email: 'hantsy@test.com',
+        firstName: 'Hantsy',
+        lastName: 'Bai',
+      });
       expect(res.status).toBe(409);
     });
 
     it('if email is existed', async () => {
-      const res = await request(app.getHttpServer())
-        .post('/register')
-        .send({
-          username: 'hantsy1',
-          password: 'password',
-          email: 'hantsy@example.com',
-          firstName: 'Hantsy',
-          lastName: 'Bai'
-        });
+      const res = await request(app.getHttpServer()).post('/register').send({
+        username: 'hantsy1',
+        password: 'password',
+        email: 'hantsy@example.com',
+        firstName: 'Hantsy',
+        lastName: 'Bai',
+      });
       expect(res.status).toBe(409);
     });
 
     it('successed', async () => {
-      const res = await request(app.getHttpServer())
-        .post('/register')
-        .send({
-          username: 'hantsy1',
-          password: 'password',
-          email: 'hantsy@gmail.com',
-          firstName: 'Hantsy',
-          lastName: 'Bai'
-        });
+      const res = await request(app.getHttpServer()).post('/register').send({
+        username: 'hantsy1',
+        password: 'password',
+        email: 'hantsy@gmail.com',
+        firstName: 'Hantsy',
+        lastName: 'Bai',
+      });
       expect(res.status).toBe(201);
     });
   });
@@ -77,7 +71,7 @@ describe('API endpoints testing (e2e)', () => {
     });
 
     it('/posts (GET) if invalid id should return 400', async () => {
-      const id = "invalidid";
+      const id = 'invalidid';
       const res = await request(app.getHttpServer()).get('/posts/' + id);
       expect(res.status).toBe(400);
     });

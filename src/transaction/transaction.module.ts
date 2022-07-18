@@ -13,7 +13,7 @@ import { TransactionRepository } from './repository/transaction.repository';
   providers: [
     {
       provide: TRANSACTION_REPOSITORY_TOKEN,
-      useClass: TransactionRepository
+      useClass: TransactionRepository,
     },
   ],
   exports: [TRANSACTION_REPOSITORY_TOKEN],

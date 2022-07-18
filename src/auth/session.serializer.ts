@@ -4,11 +4,17 @@ import { UserDto } from 'user/dtos/user.dto';
 
 @Injectable()
 export class SessionSerializer extends PassportSerializer {
-  serializeUser(user: UserDto, done: (err: Error | null, id?: UserDto) => void): void {
+  serializeUser(
+    user: UserDto,
+    done: (err: Error | null, id?: UserDto) => void,
+  ): void {
     done(null, user);
   }
 
-  deserializeUser(payload: unknown, done: (err: Error | null, payload?: unknown) => void): void {
+  deserializeUser(
+    payload: unknown,
+    done: (err: Error | null, payload?: unknown) => void,
+  ): void {
     done(null, payload);
   }
 }

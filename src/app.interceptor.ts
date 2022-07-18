@@ -25,7 +25,9 @@ export class AppInterceptor implements NestInterceptor {
     const httpContext = context.switchToHttp();
     const req = httpContext.getRequest();
 
-    const path = this.reflector.get<string[]>('path', context.getHandler()).join();
+    const path = this.reflector
+      .get<string[]>('path', context.getHandler())
+      .join();
     const method = req.method;
 
     await this.transactionRepository.save({

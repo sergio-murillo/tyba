@@ -7,7 +7,9 @@ import { UserDto } from 'user/dtos/user.dto';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
-  constructor(@Inject(AUTH_SERVICE_TOKEN) private readonly authService: IAuthService,) {
+  constructor(
+    @Inject(AUTH_SERVICE_TOKEN) private readonly authService: IAuthService,
+  ) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       secretOrKey: process.env.APP_SECRET,

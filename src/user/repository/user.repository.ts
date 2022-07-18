@@ -7,9 +7,7 @@ import { CreateUserDto } from 'user/dtos/create-user.dto';
 
 @Injectable()
 export class UserRepository implements IUserRepository {
-  constructor(
-    @InjectModel(User.name) private userModel: Model<UserDocument>,
-  ) {}
+  constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {}
 
   async findById(id: string): Promise<UserDocument> {
     return this.userModel.findOne({ _id: id }).exec();
