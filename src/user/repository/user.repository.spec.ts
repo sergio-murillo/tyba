@@ -2,8 +2,8 @@ import { getModelToken } from '@nestjs/mongoose';
 import { Test, TestingModule } from '@nestjs/testing';
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import { connect, Connection, Model } from 'mongoose';
-import { User, UserSchema } from 'user/models/user.schema';
-import { UserDtoStub } from 'user/stubs/user.stub';
+import { User, UserSchema } from '../models/user.schema';
+import { UserDtoStub } from '../stubs/user.stub';
 import { UserRepository } from './user.repository';
 
 describe('UserRepository', () => {
@@ -28,7 +28,7 @@ describe('UserRepository', () => {
     }).compile();
 
     repository = app.get<UserRepository>(UserRepository);
-    await userModel.insertMany(UserDtoStub());
+    await repository.save(UserDtoStub()[0]);
   });
 
   afterAll(async () => {
@@ -54,5 +54,7 @@ describe('UserRepository', () => {
     const result = await repository.findByUsername(username);
     expect(result._id).toBeDefined();
     expect(result.username).toEqual(username);
+    expect(result.password).toBeDefined();
+    expect(result.salt).toBeDefined();
   });
 });

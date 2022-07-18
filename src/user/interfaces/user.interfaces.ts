@@ -1,7 +1,7 @@
-import { CreateUserResponseDto } from 'user/dtos/create-user-response.dto';
-import { CreateUserDto } from 'user/dtos/create-user.dto';
-import { UserDto } from 'user/dtos/user.dto';
-import { UserDocument } from 'user/models/user.schema';
+import { CreateUserResponseDto } from '../dtos/create-user-response.dto';
+import { CreateUserDto } from '../dtos/create-user.dto';
+import { UserDto } from '../dtos/user.dto';
+import { UserDocument } from '../models/user.schema';
 
 export interface IUserRepository {
   findById: (id: string) => Promise<UserDocument>;

@@ -1,9 +1,9 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
-import { USER_REPOSITORY_TOKEN } from 'user/constants/user.constants';
-import { CreateUserResponseDto } from 'user/dtos/create-user-response.dto';
-import { CreateUserDto } from 'user/dtos/create-user.dto';
-import { UserDto } from 'user/dtos/user.dto';
-import { IUserRepository, IUserService } from 'user/interfaces/user.interfaces';
+import { USER_REPOSITORY_TOKEN } from '../constants/user.constants';
+import { CreateUserResponseDto } from '../dtos/create-user-response.dto';
+import { CreateUserDto } from '../dtos/create-user.dto';
+import { UserDto } from '../dtos/user.dto';
+import { IUserRepository, IUserService } from '../interfaces/user.interfaces';
 
 @Injectable()
 export class UserService implements IUserService {
