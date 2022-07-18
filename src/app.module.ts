@@ -5,18 +5,20 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AppInterceptor } from 'app.interceptor';
 import { AuthModule } from 'auth/auth.module';
 import { TransactionModule } from 'transaction/transaction.module';
-import databaseConfig from './config/mongodb.config';
+import { UserModule } from 'user/user.module';
+import appConfig from './config/mongodb.config';
 
 @Module({
   imports: [
-    TransactionModule,
-    ConfigModule.forRoot({ isGlobal: true, load: [databaseConfig] }),
+    ConfigModule.forRoot({ isGlobal: true, load: [appConfig] }),
     MongooseModule.forRootAsync({
       useFactory: async (configService: ConfigService) => ({
         uri: configService.get<string>('app.mongo_uri'),
       }),
       inject: [ConfigService],
     }),
+    UserModule,
+    TransactionModule,
     AuthModule,
   ],
   providers: [

@@ -2,8 +2,10 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 import { getHashPassword, getSalt } from 'utils/security';
 
+export type UserDocument = User & Document;
+
 @Schema()
-export class UserDocument extends Document {
+export class User {
   @Prop({ required: true, unique: true })
   code: string;
 
@@ -32,7 +34,7 @@ export class UserDocument extends Document {
   updatedAt: Date;
 }
 
-export const UserSchema = SchemaFactory.createForClass(UserDocument);
+export const UserSchema = SchemaFactory.createForClass(User);
 
 UserSchema.pre<UserDocument>('save', async (next: Function) => {
   const user: UserDocument = this;

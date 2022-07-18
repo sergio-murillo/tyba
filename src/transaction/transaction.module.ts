@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { TRANSACTION_REPOSITORY_TOKEN } from './constants/transaction.constants';
-import { TransactionDocument } from './models/transaction.schema';
+import { Transaction, TransactionSchema } from './models/transaction.schema';
 import { TransactionRepository } from './repository/transaction.repository';
 
 @Module({
   imports: [
     MongooseModule.forFeature([
-      { name: TransactionDocument.name, schema: TransactionDocument },
+      { name: Transaction.name, schema: TransactionSchema },
     ]),
   ],
   providers: [
