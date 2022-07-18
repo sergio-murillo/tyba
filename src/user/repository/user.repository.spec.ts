@@ -58,6 +58,12 @@ describe('UserRepository', () => {
     expect(result.salt).toBeDefined();
   });
 
+  it('should not find user by username when it does not exist', async () => {
+    const username = 'pepito2';
+    const result = await repository.findByUsername(username);
+    expect(result).toBeNull();
+  });
+
   it('should find all users', async () => {
     const result = await repository.findAll();
     expect(result.length).toBeGreaterThan(0);
