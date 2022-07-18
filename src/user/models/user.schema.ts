@@ -39,7 +39,7 @@ export class User {
 
 export const UserSchema = SchemaFactory.createForClass(User);
 
-UserSchema.pre<UserDocument>('save', async (next: Function) => {
+UserSchema.pre<UserDocument>('save', async function (next: Function) {
   const user: UserDocument = this;
 
   if (user.password) {
